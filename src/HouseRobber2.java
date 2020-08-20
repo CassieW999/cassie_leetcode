@@ -1,4 +1,5 @@
 public class HouseRobber2 {
+    //这题比houseRobber1添加了一个步骤，将一个变量变成了两个变量，原因是如果从第一个房子开始考虑则不能考虑最后一个房子，如果从第二个房子开始则考虑到最后一个
     public static int rob(int[] nums) {
         if(nums==null || nums.length==0)
             return 0;
