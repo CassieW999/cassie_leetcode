@@ -7,6 +7,9 @@
       <file url="file://$PROJECT_DIR$/src/InvertBinaryTree.java" />
       <file url="file://$PROJECT_DIR$/src/sumOfLeftLeaves.java" />
       <file url="file://$PROJECT_DIR$/src/SameTree.java" />
+      <file url="file://$PROJECT_DIR$/src/maxProfit.java" />
+      <file url="file://$PROJECT_DIR$/src/hasPathSum.java" />
+      <file url="file://$PROJECT_DIR$/src/maxDepth.java" />
     </excludeFromCompile>
   </component>
 </project>
