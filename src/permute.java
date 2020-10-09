@@ -1,24 +1,28 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class permute {
-    public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> list = new ArrayList<>();
-        bt(list, new ArrayList<>(), nums);
-        return list;
+    List<List<Integer>> result = new ArrayList<>();
+    int length = 0;
+
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        length = nums.length;
+        Map<Integer, Integer> counter = new LinkedHashMap<>();
+        for (Integer num: nums)  counter.put(num, counter.getOrDefault(num, 0) + 1);
+        permuteUnique( new LinkedList<>(), counter);
+        return result;
     }
 
-    private void bt(List<List<Integer>> list, List<Integer> temp, int[] nums){
-        if(temp.size() == nums.length){
-            list.add(new ArrayList<>(temp));
+    public void permuteUnique(LinkedList<Integer> path, Map<Integer, Integer> counter) {
+        if(path.size() == length) {
+            result.add(new ArrayList<>(path));
             return;
         }
-
-        for(int i=0; i< nums.length; i++){
-            if(!temp.contains(nums[i])){
-                temp.add(nums[i]);
-                bt(list, temp, nums);
-                temp.remove(temp.size()-1);
+        for(int num: counter.keySet()) {
+            //logic to check if the number can be added to the path
+            if( counter.get(num) - Collections.frequency(path, num) > 0) {
+                path.add(num);
+                permuteUnique(path, counter);
+                path.removeLast();
             }
         }
     }
