@@ -39,3 +39,7 @@ public class evalRPN {
         System.out.println(evalRPN(tokens));
     }
 }
+
+
+////本题目是一道simulation的题，第一次做模拟题，代码难度以及逻辑难度都较低，但是找规律和找到模拟型是关键难点，
+//解该题的关键在于理解题意，随后寻找合适的数据结构进行编译即可
