@@ -17,11 +17,11 @@ public class evalRPN {
                 int n2 = s.pop();
                 int n1 = s.pop();
                 int n = 0;
-                if (token == "+") {
+                if (token.equals("+")) {
                     n = n1 + n2;
-                }else if(token == "-"){
+                }else if(token.equals("-")){
                     n = n1 - n2;
-                }else if(token == "*"){
+                }else if(token.equals("*")){
                     n = n1 * n2;
                 }else{
                     n = n1 / n2;
