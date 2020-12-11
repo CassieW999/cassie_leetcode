@@ -2,14 +2,22 @@ import java.util.*;
 
 public class mergeKLists {
     public ListNode mergeKLists(ListNode[] lists) {
-        ListNode prev = new ListNode(), curr = prev;
-        PriorityQueue<ListNode> pq = new PriorityQueue<>((a, b)->a.val-b.val);
-        for(int i = 0; i < lists.length; i++) if (lists[i] != null) pq.add(lists[i]);
-        while(!pq.isEmpty()){
-            ListNode next = pq.poll();
-            if(next.next != null) pq.add(next.next);
-            curr = curr.next = next;
+        ListNode dummy = new ListNode(0);
+        ListNode cur = dummy;
+
+        PriorityQueue<ListNode> pg = new PriorityQueue<>(lists.length, (a, b)->(a.val-b.val));
+        for (int i = 0; i < lists.length; i++){
+            pg.add(lists[i]);
         }
-        return prev.next;
+
+        while (!pg.isEmpty()){
+            ListNode node = pg.poll();
+            cur.next = node;
+            cur = cur.next;
+            if (node.next != null){
+                pg.add(node.next);
+            }
+        }
+        return dummy.next;
     }
 }
