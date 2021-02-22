@@ -10,9 +10,11 @@ public class preorderTraversal {
         stack.push(root);
         while (!stack.isEmpty()){
             TreeNode cur = stack.pop();
-            res.add(cur.val);
-            stack.push(cur.right);
-            stack.push(cur.left);
+            if (cur != null){
+                res.add(cur.val);
+                stack.push(cur.right);
+                stack.push(cur.left);
+            }
         }
         return res;
     }
