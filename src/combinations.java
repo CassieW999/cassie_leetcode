@@ -11,6 +11,7 @@ public class combinations {
     private void dfs(int n, int k, List<List<Integer>> res, List<Integer> path, boolean[] used, int depth, int prev) {
         if (depth == k){
             res.add(new ArrayList<>(path));
+            return;
         }
 
         for (int i = prev + 1; i <= n; i++) {//i代表数值
