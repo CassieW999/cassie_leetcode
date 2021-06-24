@@ -79,6 +79,6 @@ public class arraySebsetCount_related {
     public static void main(String[] args) {
         int[] nums = {-8,1, 2,  3};
 //        System.out.println(countSubArrayWithOne(nums));
-        System.out.println(indexEqualsValueSearch(nums));
+//        System.out.println(indexEqualsValueSearch(nums));
     }
 }
