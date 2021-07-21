@@ -33,4 +33,17 @@ public class wordBreak2 {
         List<String> dict = Arrays.asList(new String[]{"cat", "cats", "and", "sand", "dog"});
         System.out.println(wordBreak(s, dict));
     }
+
+//    public boolean wordBreak(String s, List<String> wordDict) {
+//        if (s.length() == 0) return true;
+//        StringBuilder sb = new StringBuilder();
+//        int idx = 0;
+//        while (!wordDict.contains(sb.toString()) && idx < s.length()){
+//            sb.append(s.charAt(idx++));
+//        }
+//        if (idx == s.length()){
+//            return wordDict.contains(sb.toString()) ? true : false;
+//        }
+//        return wordBreak(s.substring(idx), wordDict);
+//    }
 }
