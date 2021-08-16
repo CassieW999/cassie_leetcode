@@ -1,56 +1,44 @@
-public class Trie {
-    class TrieNode{
-        boolean isEnd = false;
-        TrieNode[] next = new TrieNode[26];
+class Trie {
+    private Trie[] children;
+    private boolean isEnd;
 
-        public void setEnd(boolean isEnd){
-            this.isEnd = true;
-        }
-    }
-    TrieNode root;
-    /** Initialize your data structure here. */
     public Trie() {
-        root = new TrieNode();
+        children = new Trie[26];
+        isEnd = false;
     }
 
-    /** Inserts a word into the trie. */
     public void insert(String word) {
-        TrieNode node = root;
+        Trie node = this;
         for (int i = 0; i < word.length(); i++) {
-            int u = word.charAt(i) - 'a';
-            if (node.next[u] == null){
-                node.next[u] = new TrieNode();
+            char ch = word.charAt(i);
+            int index = ch - 'a';
+            if (node.children[index] == null) {
+                node.children[index] = new Trie();
             }
-            node = node.next[u];
+            node = node.children[index];
         }
-        node.setEnd(true);
+        node.isEnd = true;
     }
 
-    /** Returns if the word is in the trie. */
     public boolean search(String word) {
-        TrieNode node = root;
-        for (int i = 0; i < word.length(); i++) {
-            int n = word.charAt(i) - 'a';
-            if (node.next[n] == null) {
-                return false;
-            }else {
-                node = node.next[n];
-            }
-        }
-        return node.isEnd;
+        Trie node = searchPrefix(word);
+        return node != null && node.isEnd;
     }
 
-    /** Returns if there is any word in the trie that starts with the given prefix. */
     public boolean startsWith(String prefix) {
-        TrieNode node = root;
+        return searchPrefix(prefix) != null;
+    }
+
+    private Trie searchPrefix(String prefix) {
+        Trie node = this;
         for (int i = 0; i < prefix.length(); i++) {
-            int u = prefix.charAt(i) - 'a';
-            if (node.next[u] == null){
-                return false;
-            }else {
-                node = node.next[u];
+            char ch = prefix.charAt(i);
+            int index = ch - 'a';
+            if (node.children[index] == null) {
+                return null;
             }
+            node = node.children[index];
         }
-        return true;
+        return node;
     }
 }
