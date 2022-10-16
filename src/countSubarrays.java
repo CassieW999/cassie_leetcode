@@ -25,6 +25,7 @@ public class countSubarrays {
                     minQ.pop(nums[left]);
                     maxQ.pop(nums[left]);
                     left++;
+//                    hhhh
                 }
             }
         }
